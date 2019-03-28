@@ -2,3 +2,5 @@ photos
 
 /dbs/recommendations.db 
 node_modules
+
+config
