@@ -1,46 +1,22 @@
 const sqlite3 = require('sqlite3').verbose();
-const faker = require('faker');
-const {roomSchema, recSchema} = require('./schema')
-const aws = require('aws-sdk')
-const config = require('../config.js')
+const {roomSchema, recSchema, dropRec, dropRoom} = require('./schema')
+const fakeData = require('./fakeData')
 
-var s3 = new aws.S3({ accessKeyId: config.awsAccessKey, secretAccessKey: config.awsSecretKey});
-
-var params = {
-  Bucket: 'airbnb-recommendations', /* required */
-};
-
-function getItems() {
-  return new Promise((resolve, reject) => {
-    var urls = []
-    s3.listObjectsV2(params, function(err, data) {
-      if (err) console.log(err, err.stack); // an error occurred
-      else  {
-        let bucketContent = data.Contents
-        for (item of bucketContent) {
-          urls.push(`https://airbnb-recommendations.s3.amazonaws.com/${item.Key}`)
-          console.log(`https://airbnb-recommendations.s3.amazonaws.com/${item.Key}`)
-        }
-        resolve(urls)
-      } 
-    })
-  })
-}
-
-getItems()
-.then((urls) => {
-    console.log(urls)
+var seedData = (fakeRecData) => {
+    // console.log(urls)
     let db = new sqlite3.Database('./recommendations.db', (err) => {
       if (err) {
         console.error(err.message)
       }
       console.log('Connected to the chinook database');
     });
-
     db.serialize(() => {
-      db.run(roomSchema)
+      db.run(dropRec)
+      .run(dropRoom)
+      .run(roomSchema)
       .run(recSchema)
-      
+      .run(`insert into recommendations (id, recimg, recdetails, rectitle, recCost, recRating, recratingCount, roomId)
+      values ${fakeRecData};`)
     })
 
     db.close(err => {
@@ -49,6 +25,5 @@ getItems()
       }
     });
   }
-)
-
-
+fakeData.fakeRecData()
+.then(fakeRecData => seedData(fakeRecData))

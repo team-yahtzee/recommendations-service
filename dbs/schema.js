@@ -1,3 +1,10 @@
+
+module.exports.dropRoom = 
+`Drop table if exists rooms;`
+
+module.exports.dropRec = 
+`Drop table if exists recommendations`
+
 module.exports.roomSchema = 
 `Create table if not exists rooms (
   id Integer(50) not null primary key,
@@ -15,5 +22,3 @@ module.exports.recSchema =
   recratingCount varchar(255),
   roomId integer(50)
 );`
-
-
