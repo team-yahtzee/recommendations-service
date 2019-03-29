@@ -2,9 +2,16 @@ const sqlite3 = require('sqlite3').verbose();
 const faker = require('faker');
 const {roomSchema, recSchema} = require('./schema')
 const aws = require('aws-sdk')
-const config = require('../config.js')
+const dotenv = require("dotenv")
 
-var s3 = new aws.S3({ accessKeyId: config.awsAccessKey, secretAccessKey: config.awsSecretKey});
+dotenv.config({
+  path: '../.env'
+})
+
+console.log(process.env.awsSecretKey)
+console.log(process.env.awsAccessKey)
+
+var s3 = new aws.S3({ accessKeyId: process.env.awsAccessKey, secretAccessKey: process.env.awsSecretKey});
 
 var params = {
   Bucket: 'airbnb-recommendations', /* required */

@@ -1,10 +1,9 @@
 const aws = require('aws-sdk')
-const config = require('./config')
 
-// console.log(config.awsAccessKey)
-// console.log(config.awsSecretKey)
+console.log(process.env.awsAccessKey)
+console.log(process.env.awsSecretKey)
 
-var s3 = new aws.S3({ accessKeyId: config.awsAccessKey, secretAccessKey: config.awsSecretKey});
+var s3 = new aws.S3({ accessKeyId: process.env.awsAccessKey, secretAccessKey: process.env.awsSecretKey});
 
 // construct getParam
 var getParams = {

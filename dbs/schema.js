@@ -1,3 +1,5 @@
+
+
 module.exports.roomSchema = 
 `Create table if not exists rooms (
   id Integer(50) not null primary key,
@@ -16,4 +18,6 @@ module.exports.recSchema =
   roomId integer(50)
 );`
 
+require('dotenv/config')
 
+console.log(process.env.awsAccessKey)
