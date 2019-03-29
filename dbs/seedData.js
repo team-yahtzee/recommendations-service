@@ -8,8 +8,6 @@ dotenv.config({
   path: '../.env'
 })
 
-console.log(process.env.awsSecretKey)
-console.log(process.env.awsAccessKey)
 
 var s3 = new aws.S3({ accessKeyId: process.env.awsAccessKey, secretAccessKey: process.env.awsSecretKey});
 

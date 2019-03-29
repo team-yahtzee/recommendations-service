@@ -1,6 +1,22 @@
 const faker = require('faker');
 
-const User = {
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
+
+const recommendation = {
   id: 'i',
   recImage: faker.image.avatar(),
   recDetails: faker.lorem.text(),
@@ -8,9 +24,10 @@ const User = {
   recCost: Math.floor(Math.random() *100 * Math.floor(10)),
   recRating: Math.floor(Math.random() * 3) + 3,
   recRatingCount: Math.floor(Math.random()*100) +40,
-  roomId:
+  roomId: 2
 }
 
+console.log(recommendation)
 
 module.exports.recSchema = 
 `create table if not exists recommendations (
@@ -25,5 +42,7 @@ module.exports.recSchema =
 );`
 
 for (let i=0; i<= 100; i++) {
-  
+  console.log(i)
 }
+
+console.log([...Array(5).keys()])
