@@ -6,13 +6,11 @@ const User = {
   recDetails: faker.lorem.text(),
   recTitle: faker.lorem.text(),
   recCost: Math.floor(Math.random() *100 * Math.floor(10)),
-  // recRating 
-  email: faker.internet.email(),
-  website: faker.internet.url(),
-  website: faker.address.streetAddress() + faker.address.city() + faker.address.country()
+  recRating: Math.floor(Math.random() * 3) + 3,
+  recRatingCount: Math.floor(Math.random()*100) +40,
+  roomId:
 }
 
-console.log(Math.floor(Math.random() *Math.floor(5)))
 
 module.exports.recSchema = 
 `create table if not exists recommendations (
