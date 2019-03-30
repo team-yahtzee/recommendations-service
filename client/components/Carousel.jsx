@@ -1,11 +1,27 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-// import "./index.css";
+import ReactDOM from 'react-dom'
+import { AlexaForBusiness } from "aws-sdk";
+import CarouselList from './CarouselList.jsx' 
+// import axios from 'axios'
 
-export default class Carousel extends Component {
+class Carousel extends Component {
   constructor() {
     super()
+    this.state = {
+      recommendations: ''
+    }
   }
+
+  // ComponentDidMount() {
+  //   axios.get('/room')
+  //   .then(recData => {
+  //     this.setState({
+  //       recommendations = recData
+  //     })
+  //   })
+  // }
+
   render() {
     var settings = {
       dots: true
@@ -13,17 +29,11 @@ export default class Carousel extends Component {
     return (
       <div className="container">
         <Slider {...settings}>
-          <div>
-            <img className='photo' src="https://s3.us-east-2.amazonaws.com/airbnb-recommendations/brick-country-home.jpg" />
-          </div>
-          <div>
-            <img className='photo' src="https://s3.us-east-2.amazonaws.com/airbnb-recommendations/house-exterior-in-tropics.jpg" />
-          </div>
-          <div>
-            <img className='photo' src="https://s3.us-east-2.amazonaws.com/airbnb-recommendations/yellow-door-on-brick-home.jpg" />
-          </div>
+          <CarouselList recommendations={this.state.recommendations}/>
         </Slider>
       </div>
     );
   }
 }
+
+ReactDOM.render(<Carousel />, document.getElementById('recommendations'))

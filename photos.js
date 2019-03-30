@@ -7,13 +7,6 @@ dotenv.config({
 
 var s3 = new aws.S3({ accessKeyId: process.env.awsAccessKey, secretAccessKey: process.env.awsSecretKey});
 
-// construct getParam
-var getParams = {
-  Bucket: 'airbnb-recommendations', //replace example bucket with your s3 bucket name
-  Key: '3abef769-fcf6-4ac8-bb77-a20eee693b9e.jpg' // replace file location with your s3 file location
-}
-
-
 var params = {
   Bucket: 'airbnb-recommendations', /* required */
 };
