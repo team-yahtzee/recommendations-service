@@ -1,39 +1,31 @@
-import React, { Component } from "react";
+import React, {Component} from 'react'
 import Slider from "react-slick";
-import ReactDOM from 'react-dom'
-import { AlexaForBusiness } from "aws-sdk";
-import CarouselList from './CarouselList.jsx' 
-// import axios from 'axios'
+import CarouselList from './CarouselList.jsx'
+
 
 class Carousel extends Component {
-  constructor() {
-    super()
-    this.state = {
-      recommendations: ''
-    }
+  constructor(props) {
+    super(props)
   }
-
-  // ComponentDidMount() {
-  //   axios.get('/room')
-  //   .then(recData => {
-  //     this.setState({
-  //       recommendations = recData
-  //     })
-  //   })
-  // }
-
   render() {
     var settings = {
-      dots: true
+      dots: true,
+      slidesToShow: 3,
+      centerMode: true
     };
     return (
-      <div className="container">
-        <Slider {...settings}>
-          <CarouselList recommendations={this.state.recommendations}/>
-        </Slider>
+        <div>
+         <div className="container">
+          <Slider {...settings}>
+            {this.props.recommendations.map(rec => {
+              return <CarouselList recommendation={rec}/>
+            })}
+          </Slider>
+          {console.log('done')}
+        </div>
       </div>
-    );
+    )
   }
 }
 
-ReactDOM.render(<Carousel />, document.getElementById('recommendations'))
+export default Carousel

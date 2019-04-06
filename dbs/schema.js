@@ -1,4 +1,3 @@
-
 module.exports.dropRoom = 
 `Drop table if exists rooms;`
 

@@ -1,30 +1,25 @@
 import React, {Component} from 'react'
-import Slider from "react-slick";
-
+import StarRatingComponent from 'react-star-rating-component'
 
 class CarouselList extends Component {
   constructor(props) {
     super(props)
   }
-
   render() {
-    var settings = {
-      dots: true
-    };
     return (
+      <div>
         <div>
-         <div className="container">
-          <Slider {...settings}>
-          <div>
-            <img className='photo' src="https://s3.us-east-2.amazonaws.com/airbnb-recommendations/brick-country-home.jpg" />
+          <img className='photo' src={this.props.recommendation.recImg} alt=''/>
+        </div>
+        <div className='photo-padding'>
+          <div className='photo-description'>
+            <div className='photo-title'>{this.props.recommendation.recTitle}</div>
+            <div className='photo-description-description'>{this.props.recommendation.recDetails}</div>
+            <div className='photo-price'>${this.props.recommendation.recCost} per night</div>
+            <StarRatingComponent name='rating' starCount={parseInt(this.props.recommendation.recRating)} />
+            <div className='photo-rating-count'>({parseInt(this.props.recommendation.recratingCount)})</div>
+            
           </div>
-          <div>
-            <img className='photo' src="https://s3.us-east-2.amazonaws.com/airbnb-recommendations/house-exterior-in-tropics.jpg" />
-          </div>
-          <div>
-            <img className='photo' src="https://s3.us-east-2.amazonaws.com/airbnb-recommendations/yellow-door-on-brick-home.jpg" />
-          </div>
-          </Slider>
         </div>
       </div>
     )

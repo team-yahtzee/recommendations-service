@@ -1,9 +1,9 @@
 .container {
   margin: 0 auto;
   padding: 40px;
-  width: 80%;
+  width: 65%;
   color: #333;
-  background: #419be0;
+  /* background: #419be0; */
 }
 
 h3 {
@@ -18,8 +18,8 @@ h3 {
 }
 
 .photo {
-  height: 200px;
-  width:250px;
+  height: 225px;
+  width: 350px;
 }
 
 .variable-width .slick-slide p {
@@ -48,7 +48,7 @@ h3 {
   padding: 10px;
 }
 .slick-slide img {
-  border: 5px solid #fff;
+  border: 2px solid #fff;
   display: block;
   margin: auto;
 }
@@ -97,17 +97,89 @@ h3 {
   height: 180px;
 }
 .slick-arrow {
-  background-color: grey;
-  /* color: black; */
+  /* background-color:grey; */
+  color: black;
+  display:block;
+  fill-rule: evenodd;
 }
-.slick-arrow:hover {
-  background-color: grey;
+
+.slick-next:before {
+  position: relative;
+  /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
+  content: "";
+  display: inline-block;
+  /* By using an em scale, the arrows will size with the font */
+  width: 1em;
+  height: 1em;
+  border-right: 0.2em solid black;
+  border-top: 0.2em solid black;
+  transform: rotate(45deg);
+  margin-right: 0.5em;
 }
-/* .slick-prev {
-  z-index: 100;
-  left: 20px !important;
+
+.slick-prev:before {
+  position: relative;
+  /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
+  content: "";
+  display: inline-block;
+  /* By using an em scale, the arrows will size with the font */
+  width: 1em;
+  height: 1em;
+  border-right: 0.2em solid black;
+  border-top: 0.2em solid black;
+  transform: rotate(225deg);
+  margin-right: 0.5em;
 }
-.slick-next {
-  z-index: 100;
-  right: 20px !important;
-} */
+
+.photo-padding {
+  padding-top: 8px;
+}
+
+.photo-title {
+  color: rgb(57,87,106);
+  overflow-wrap: break-word !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  line-height: 1.33333em !important;
+  color: rgb(72, 72, 72) !important;
+  margin: 0px !important;
+}
+
+.photo-description {
+  display: block !important;
+  color: rgb(35, 19, 65) !important;
+  text-decoration: none !important;
+  margin-left:75px;
+  margin-right:50px;
+}
+
+.photo-description-description {
+  overflow-wrap: break-word !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  line-height: 1.375em !important;
+  color: rgb(72, 72, 72) !important;
+  margin: 0px !important;
+}
+
+.photo-price {
+  overflow-wrap: break-word !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.28571em !important;
+  color: rgb(72, 72, 72) !important;
+  margin: 0px !important;
+}
+
+.photo-rating-count {
+  overflow-wrap: break-word !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 1.33333em !important;
+  color: rgb(72, 72, 72) !important;
+  margin: 0px !important;
+}
