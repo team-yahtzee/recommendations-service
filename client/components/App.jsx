@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import {  Button,Modal,ModalBody,ModalHeader,} from 'reactstrap'
+// import {  Button,Modal,ModalBody,ModalHeader,} from 'reactstrap'
 import ReactDOM from 'react-dom'
 import { AlexaForBusiness } from "aws-sdk";
 import Carousel from './Carousel.jsx' 
 import axios from 'axios'
 import {BrowserRouter, Router} from 'react-router-dom'
 import Reactstrap from 'reactstrap'
+import Modal from './Modal2.jsx'
 
 
 
@@ -54,6 +55,28 @@ var seed = [
 ]
 
 
+// overwrite style
+const modalStyle = {
+	overlay: {
+		backgroundColor: "rgba(0, 0, 0,0.5)"
+	}
+};
+
+const mainStyle = {
+	app: {
+		margin: "120px 0"
+	},
+	button: {
+		backgroundColor: "#408cec",
+		border: 0,
+		padding: "12px 20px",
+		color: "#fff",
+		margin: "0 auto",
+		width: 150,
+		display: "block",
+		borderRadius: 3
+	}
+};
 
 class App extends Component {
   constructor() {
@@ -61,8 +84,13 @@ class App extends Component {
     this.state = {
       recommendations: seed,
       isShowing:false,
-      isOpen:false
+      isOpen:false,
+      isModalOpen: false,
+			isInnerModalOpen: false
     }
+    		// bind functions
+		this.closeModal = this.closeModal.bind(this);
+		this.openModal = this.openModal.bind(this);
   }
 
   ComponentDidMount() {
@@ -102,24 +130,57 @@ class App extends Component {
     this.setState({ isOpen: !this.state.isOpen });
   };
 
+  
+    // close modal (set isModalOpen, true)
+    closeModal() {
+      this.setState({
+        isModalOpen: false
+      });
+    }
+  
+    // open modal (set isModalOpen, false)
+    openModal() {
+      this.setState({
+        isModalOpen: true
+      });
+    }
+
   render() {
     return (
       <div>
         <Carousel recommendations={this.state.recommendations}/>
         <button onClick={this.newData.bind(this)}>Refresh!</button>
 
-        <div>
-        <div className="fixed-top bg-secondary p-3 d-flex justify-content-between align-items-center">
-          <div className="text-white">Look over there -></div>
-          <div>
-            <Button color="primary" onClick={this.toggleModal.bind(this)}>Open modal</Button>
-          </div>
-        </div>
-        <Modal isOpen={this.state.isOpen}>
-          <ModalHeader toggle={this.toggleModal.bind(this)}>My modal</ModalHeader>
-          <ModalBody>Lorem ipsum.</ModalBody>
-        </Modal>
-      </div>
+        <div style={mainStyle.app}>
+				<button style={mainStyle.button} onClick={this.openModal}>
+					Open modal
+				</button>
+
+				<Modal
+					isModalOpen={this.state.isModalOpen}
+					closeModal={this.closeModal}
+					style={modalStyle}
+				>
+					<img
+						width="100%"
+						style={{ borderRadius: 3 }}
+						src="https://source.unsplash.com/random"
+						alt="unsplash"
+					/>
+
+					<button
+						// style={{
+						// 	...mainStyle.button,
+						// 	margin: 0,
+						// 	width: "auto",
+						// 	marginTop: 10
+						// }}
+						onClick={this.closeModal}
+					>
+						Close
+					</button>
+				</Modal>
+			</div>
       </div>
     );
   }
