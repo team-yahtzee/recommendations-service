@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import {  Button,Modal,ModalBody,ModalHeader,} from 'reactstrap'
+
 import ReactDOM from 'react-dom'
 import { AlexaForBusiness } from "aws-sdk";
 import Carousel from './Carousel.jsx' 
@@ -62,21 +62,7 @@ const modalStyle = {
 	}
 };
 
-const mainStyle = {
-	app: {
-		margin: "120px 0"
-	},
-	button: {
-		backgroundColor: "#408cec",
-		border: 0,
-		padding: "12px 20px",
-		color: "#fff",
-		margin: "0 auto",
-		width: 150,
-		display: "block",
-		borderRadius: 3
-	}
-};
+
 
 class App extends Component {
   constructor() {
@@ -148,15 +134,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Carousel recommendations={this.state.recommendations}/>
-        <button onClick={this.newData.bind(this)}>Refresh!</button>
-
-        <div style={mainStyle.app}>
-				<button style={mainStyle.button} onClick={this.openModal}>
-					Open modal
-				</button>
-
-				<Modal
+        			<Modal
 					isModalOpen={this.state.isModalOpen}
 					closeModal={this.closeModal}
 					style={modalStyle}
@@ -180,7 +158,10 @@ class App extends Component {
 						Close
 					</button>
 				</Modal>
-			</div>
+
+        <Carousel openModal={this.openModal} recommendations={this.state.recommendations}/>
+        <button onClick={this.newData.bind(this)}>Refresh!</button>
+
       </div>
     );
   }

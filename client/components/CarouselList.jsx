@@ -33,11 +33,9 @@ class CarouselList extends Component {
               close={this.closeModalHandler.bind(this)}>
                   Maybe aircrafts fly very high because they don't want to be seen in plane sight?
           </Modal>
-          <div className='heart' onClick={this.props.openModalHandler}></div>
+          <div className='heart' onClick={this.props.openModal}></div>
           <img className='photo' src={this.props.recommendation.recImg} alt=''/>
-          
-          
-          <button className="open-modal-btn" onClick={this.openModalHandler.bind(this)}>Open Modal</button>
+        
 
         
         <div className='photo-padding'>
