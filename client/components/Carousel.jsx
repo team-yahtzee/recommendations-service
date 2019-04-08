@@ -21,7 +21,7 @@ class Carousel extends Component {
               return <CarouselList recommendation={rec}/>
             })}
           </Slider>
-          {console.log('done')}
+          {console.log(window.location.pathname)}
         </div>
       </div>
     )

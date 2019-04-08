@@ -1,9 +1,14 @@
 import React, { Component } from "react";
-
+import {  Button,Modal,ModalBody,ModalHeader,} from 'reactstrap'
 import ReactDOM from 'react-dom'
 import { AlexaForBusiness } from "aws-sdk";
 import Carousel from './Carousel.jsx' 
 import axios from 'axios'
+import {BrowserRouter, Router} from 'react-router-dom'
+import Reactstrap from 'reactstrap'
+
+
+
 
 var seed = [
   {
@@ -48,17 +53,21 @@ var seed = [
   } 
 ]
 
+
+
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      recommendations: seed
+      recommendations: seed,
+      isShowing:false,
+      isOpen:false
     }
   }
 
   ComponentDidMount() {
     console.log('hi')
-    axios.get('http://localhost:3001/4')
+    axios.get('/4')
     .then(({data}) => {
       this.setState({
         recommendations: data
@@ -68,20 +77,49 @@ class App extends Component {
   }
 
   newData() {
-    axios.get('http://localhost:3001/4')
+    axios.get('/5')
     .then(({data}) => {
       this.setState({
         recommendations: data
       })
-      console.log(data)
     })
   }
+
+  openModalHandler() {
+      this.setState({
+          isShowing: true
+      });
+  }
+
+  closeModalHandler() {
+      this.setState({
+          isShowing: false
+      });
+  }
+
+  toggleModal(){
+    console.log('hi')
+    this.setState({ isOpen: !this.state.isOpen });
+  };
 
   render() {
     return (
       <div>
         <Carousel recommendations={this.state.recommendations}/>
         <button onClick={this.newData.bind(this)}>Refresh!</button>
+
+        <div>
+        <div className="fixed-top bg-secondary p-3 d-flex justify-content-between align-items-center">
+          <div className="text-white">Look over there -></div>
+          <div>
+            <Button color="primary" onClick={this.toggleModal.bind(this)}>Open modal</Button>
+          </div>
+        </div>
+        <Modal isOpen={this.state.isOpen}>
+          <ModalHeader toggle={this.toggleModal.bind(this)}>My modal</ModalHeader>
+          <ModalBody>Lorem ipsum.</ModalBody>
+        </Modal>
+      </div>
       </div>
     );
   }
