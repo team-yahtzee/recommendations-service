@@ -6,8 +6,7 @@ import Carousel from './Carousel.jsx'
 import axios from 'axios'
 import {BrowserRouter, Router} from 'react-router-dom'
 import Reactstrap from 'reactstrap'
-import Modal from './Modal2.jsx'
-
+import Modal from './Modal.jsx'
 
 
 
@@ -69,10 +68,9 @@ class App extends Component {
     super()
     this.state = {
       recommendations: seed,
-      isShowing:false,
-      isOpen:false,
       isModalOpen: false,
-			isInnerModalOpen: false
+      isInnerModalOpen: false,
+      modalImg: seed[0].recImg
     }
     		// bind functions
 		this.closeModal = this.closeModal.bind(this);
@@ -98,24 +96,6 @@ class App extends Component {
       })
     })
   }
-
-  openModalHandler() {
-      this.setState({
-          isShowing: true
-      });
-  }
-
-  closeModalHandler() {
-      this.setState({
-          isShowing: false
-      });
-  }
-
-  toggleModal(){
-    console.log('hi')
-    this.setState({ isOpen: !this.state.isOpen });
-  };
-
   
     // close modal (set isModalOpen, true)
     closeModal() {
@@ -134,29 +114,39 @@ class App extends Component {
   render() {
     return (
       <div>
-        			<Modal
+          <Modal
 					isModalOpen={this.state.isModalOpen}
 					closeModal={this.closeModal}
 					style={modalStyle}
 				>
-					<img
-						width="100%"
-						style={{ borderRadius: 3 }}
-						src="https://source.unsplash.com/random"
-						alt="unsplash"
-					/>
-
-					<button
+        	<button className='modal-close-button'
 						// style={{
-						// 	...mainStyle.button,
 						// 	margin: 0,
 						// 	width: "auto",
 						// 	marginTop: 10
 						// }}
 						onClick={this.closeModal}
 					>
-						Close
+						X
 					</button>
+
+          <h1 className='save-to-list-text'>Save to list</h1>
+          <div className='create-new-list-div'>
+            <button className='create-new-list-text'>Create New List</button>
+          </div>
+          <div className ='modal-bottom-box'>
+            <img
+              className ='modal-image'
+              width="200px"
+              height="150px"
+              style={{ borderRadius: 3 }}
+              src= {this.state.modalImg}
+              alt="unsplash"
+            />
+          </div>
+
+          
+
 				</Modal>
 
         <Carousel openModal={this.openModal} recommendations={this.state.recommendations}/>

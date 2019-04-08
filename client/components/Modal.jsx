@@ -1,30 +1,68 @@
-import React from 'react';
+// import {  Button,Modal,ModalBody,ModalHeader,} from 'reactstrap'
 
 
-const Modal = (props) => {
-    return (
-        <div>
-            <div className="modal-wrapper"
-                style={{
-                    transform: props.show ? 'translateY(0vh)' : 'translateY(-100vh)',
-                    opacity: props.show ? '1' : '0'
-                }}>
-                <div className="modal-header">
-                    <h3>Modal Header</h3>
-                    <span className="close-modal-btn" onClick={props.close}>×</span>
-                </div>
-                <div className="modal-body">
-                    <p>
-                        {props.children}
-                    </p>
-                </div>
-                <div className="modal-footer">
-                    <button className="btn-cancel" onClick={props.close}>CLOSE</button>
-                    <button className="btn-continue">CONTINUE</button>
-                </div>
-            </div>
-        </div>
-    )
+class Modal extends React.Component {
+
+
+	constructor(props) {
+		super(props);
+
+		this.outerStyle = {
+			position: "fixed",
+			top: 0,
+			left: 0,
+			width: "100%",
+			height: "100%",
+			overflow: "auto",
+			zIndex: 1
+		};
+
+		// default style
+		this.style = {
+			modal: {
+				position: "absolute",
+				width: 350,
+				padding: 35,
+				left: 500,
+				top:100,
+				boxSizing: "border-box",
+				backgroundColor: "#fff",
+				margin: "40px auto",
+				borderRadius: 3,
+				zIndex: 10,
+				textAlign: "left",
+				boxShadow: "0 20px 30px rgba(0, 0, 0, 0.2)"
+				// ...this.props.style.modal
+			},
+			overlay: {
+				position: "fixed",
+				top: 0,
+				bottom: 0,
+				left: 0,
+				right: 0,
+				width: "100%",
+				height: "100%",
+				backgroundColor: "rgba(0,0,0,0.5)",
+				// ...this.props.style.overlay
+			}
+		};
+	}
+
+	// render modal
+	render() {
+		return (
+			<div
+				style={{
+					// ...this.outerStyle,
+					display: this.props.isModalOpen ? "block" : "none"
+				}}
+			>
+				<div className='modal-box'  onClick={this.props.closeModal} />
+				<div onClick={this.props.closeModal} />
+				<div className='modal-box'>{this.props.children}</div>
+			</div>
+		);
+	}
 }
 
 
