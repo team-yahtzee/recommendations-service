@@ -20,7 +20,7 @@ class CarouselList extends Component {
             <div className='photo-title'>{this.props.recommendation.recTitle}</div>
             <div className='photo-description-description'>{this.props.recommendation.recDetails}</div>
             <div className='photo-price'>${this.props.recommendation.recCost} per night</div>
-            <StarRatingComponent name='rating' starCount={parseInt(this.props.recommendation.recRating)} />
+            <StarRatingComponent className='photo-star-rating' name='rating' starCount={parseInt(this.props.recommendation.recRating)} />
             <div className='photo-rating-count'>({parseInt(this.props.recommendation.recratingCount)})</div>
             
           </div>

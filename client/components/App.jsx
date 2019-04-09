@@ -7,6 +7,7 @@ import axios from 'axios'
 import {BrowserRouter, Router} from 'react-router-dom'
 import Reactstrap from 'reactstrap'
 import Modal from './Modal.jsx'
+import StarRatingComponent from 'react-star-rating-component'
 
 
 
@@ -70,7 +71,10 @@ class App extends Component {
       recommendations: seed,
       isModalOpen: false,
       isInnerModalOpen: false,
-      modalImg: seed[0].recImg
+      modalImg: seed[0].recImg,
+      modalTitle: seed[0].recTitle,
+      modalRating: seed[0].recRating,
+      modalRatingCount: seed[0].recratingCount
     }
     		// bind functions
 		this.closeModal = this.closeModal.bind(this);
@@ -114,6 +118,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <h2 className='more-homes-title'>More homes you may like</h2>
           <Modal
 					isModalOpen={this.state.isModalOpen}
 					closeModal={this.closeModal}
@@ -143,15 +148,25 @@ class App extends Component {
               src= {this.state.modalImg}
               alt="unsplash"
             />
-          </div>
 
+            <div className='modal-title'>{this.state.modalTitle}</div>
+            <StarRatingComponent className='photo-star-rating modal-box-rating' name='rating' starCount={parseInt(this.state.modalRating)} />
+            <div className='photo-rating-count modal-box-rating'>({parseInt(this.state.modalRatingCount)})</div>
+
+          </div>
+          
           
 
 				</Modal>
 
         <Carousel openModal={this.openModal} recommendations={this.state.recommendations}/>
-        <button onClick={this.newData.bind(this)}>Refresh!</button>
+        <h2 className='more-homes-title'>Explore other options in and around New York</h2>
 
+        <button onClick={this.newData.bind(this)}>Refresh!</button>
+        <span className='more-places-title'>More places to stay in New York:</span>
+        <div>
+          <div className='more-places-rec'>Houses</div>
+        </div>
       </div>
     );
   }

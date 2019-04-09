@@ -148,52 +148,60 @@ h3 {
 
 .photo-title {
   color: rgb(57,87,106);
-  overflow-wrap: break-word !important;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-  font-size: 12px !important;
-  font-weight: 800 !important;
-  line-height: 1.33333em !important;
-  color: rgb(72, 72, 72) !important;
-  margin: 0px !important;
+  overflow-wrap: break-word;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.33333em;
+  color: rgb(72, 72, 72);
+  margin: 0px;
 }
 
 .photo-description {
-  display: block !important;
-  color: rgb(35, 19, 65) !important;
-  text-decoration: none !important;
+  display: block;
+  color: rgb(35, 19, 65);
+  text-decoration: none;
   margin-left:75px;
   margin-right:50px;
 }
 
 .photo-description-description {
-  overflow-wrap: break-word !important;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-  font-size: 16px !important;
-  font-weight: 800 !important;
-  line-height: 1.375em !important;
-  color: rgb(72, 72, 72) !important;
-  margin: 0px !important;
+  overflow-wrap: break-word;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.375em;
+  color: rgb(72, 72, 72);
+  margin: 0px;
 }
 
 .photo-price {
-  overflow-wrap: break-word !important;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-  font-size: 14px !important;
-  font-weight: 400 !important;
-  line-height: 1.28571em !important;
-  color: rgb(72, 72, 72) !important;
-  margin: 0px !important;
+  overflow-wrap: break-word;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28571em;
+  color: rgb(72, 72, 72);
+  margin: 0px;
+}
+
+.photo-star-rating {
+  float:left;
 }
 
 .photo-rating-count {
-  overflow-wrap: break-word !important;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  line-height: 1.33333em !important;
-  color: rgb(72, 72, 72) !important;
-  margin: 0px !important;
+  float:left;
+  padding:4px;
+  overflow-wrap: break-word;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.33333em;
+  color: rgb(72, 72, 72);
+  margin: 0px;
 }
+
+
 
 /*heart modal*/
 
@@ -242,65 +250,66 @@ h3 {
 
 
 .modal-close-button {
-  cursor: pointer !important;
-  background-color: transparent !important;
-  color: grey !important;
-  display: block !important;
-  border-width: 0px !important;
-  border-style: initial !important;
-  border-color: initial !important;
-  border-image: initial !important;
+  cursor: pointer;
+  background-color: transparent;
+  color: grey;
+  display: block;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
   font-size: 16px;
 }
 
 .save-to-list-text {
-  margin: 0px !important;
-  word-wrap: break-word !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  font-size: 24px !important;
-  font-weight: 800 !important;
-  line-height: 1.25em !important;
-  color: #484848 !important;
-  padding-top: 10px !important;
-  padding-bottom: 2px !important;
+  margin: 0px;
+  word-wrap: break-word;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.25em;
+  color: #484848;
+  padding-top: 10px;
+  padding-bottom: 2px;
 }
 
 .create-new-list-div {
-  padding: 16px 0px !important;
+  padding: 16px 0px;
   border-bottom: 2px rgba(0,0,0,0.4) solid;
 }
 
 .create-new-list-text {
-  color: #008489 !important;
-  font: inherit !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  -webkit-text-decoration-line: none !important;
-  -moz-text-decoration-line: none !important;
-  text-decoration-line: none !important;
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  appearance: none !important;
-  background: transparent !important;
-  border: 0px !important;
-  cursor: pointer !important;
-  margin: 0px !important;
-  padding: 0px !important;
-  -webkit-user-select: auto !important;
-  -moz-user-select: auto !important;
-  -ms-user-select: auto !important;
-  user-select: auto !important;
-  text-align: left !important;
+  color: #008489;
+  font: inherit;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  -webkit-text-decoration-line: none;
+  -moz-text-decoration-line: none;
+  text-decoration-line: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0px;
+  cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+  text-align: left;
   
 
 }
 
 .create-new-list-text:hover {
-  text-decoration-line: var(underline) !important;
-  color: var( #008489) !important;
+  text-decoration-line: var(underline);
+  color: var( #008489);
 }
 
 .modal-image {
   margin: 10px;
+  float:left;
 }
 
 .modal-box {
@@ -316,14 +325,86 @@ h3 {
   border-radius: 3;
   z-index: 10;
   text-align: left;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 10px 0px !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 10px 0px;
 }
 
 .modal-bottom-box {
   position: relative;
   top: 250px;
-  background-color: rgb(255, 255, 255) !important;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px -8px 20px -6px !important;
-  overflow-y: hidden !important;
-  transition: top 0.3s ease-in-out 0s !important;
+  background-color: rgb(255, 255, 255) 
+  box-shadow: rgba(0, 0, 0, 0.2) 0px -8px 20px -6px 
+  overflow-y: hidden 
+  transition: top 0.3s ease-in-out 0s;
+}
+
+.modal-description-box {
+  width: calc(100% - 120px);
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  height: 80px;
+  box-sizing: border-box;
+}
+
+.modal-title {
+  position: absolute;
+  top: 50px;
+  left:230px;
+  float: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: block;
+  margin: 0px;
+  word-wrap: break-word;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.375em;
+  color: #484848;
+}
+
+.modal-box-rating {
+  position: relative;
+  top: 100px;
+  left: 10px;
+}
+
+.more-homes-title {
+  position:relative;
+  top: 80px;
+  left: 110px;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  line-height: 1.25em !important;
+  color: #484848 !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
+.more-places-title {
+  float:left;
+  position:relative;
+  top:100px;
+  left: 110px;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.375em !important;
+}
+
+.more-places-rec {
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.375em !important;
+  color: #767676 !important;
 }
