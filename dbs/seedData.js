@@ -3,12 +3,11 @@ const {roomSchema, recSchema, dropRec, dropRoom} = require('./schema')
 const fakeData = require('./fakeData')
 
 var seedData = (fakeRecData) => {
-    // console.log(urls)
     let db = new sqlite3.Database('./recommendations.db', (err) => {
       if (err) {
         console.error(err.message)
       }
-      console.log('Connected to the chinook database');
+      console.log('Connected to the recommendations database');
     });
     db.serialize(() => {
       db.run(dropRec)
@@ -18,7 +17,6 @@ var seedData = (fakeRecData) => {
       .run(`insert into recommendations (id, recimg, recdetails, rectitle, recCost, recRating, recratingCount, roomId)
       values ${fakeRecData};`)
     })
-
     db.close(err => {
       if (err) {
         return console.err(err.message)
