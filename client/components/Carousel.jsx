@@ -22,7 +22,7 @@ class Carousel extends Component {
             })}
           </Slider>
 
-          {console.log(window.location.pathname)}
+          
         </div>
       </div>
     )

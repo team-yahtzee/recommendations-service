@@ -8,7 +8,12 @@ const controller = require('./controller/controller')
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/:room', (req, res, next) => {
+app.get('/:room', function(req, res) {
+  console.log(req.params)
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
+
+app.get('/room/:room', (req, res, next) => {
   controller.getRoomRecommendations(req, res, next)
 })
 

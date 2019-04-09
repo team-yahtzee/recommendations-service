@@ -82,14 +82,12 @@ class App extends Component {
 		this.openModal = this.openModal.bind(this);
   }
 
-  ComponentDidMount() {
-    console.log('hi')
-    axios.get('/4')
+  componentDidMount() {
+    axios.get(`/room${window.location.pathname}`)
     .then(({data}) => {
       this.setState({
         recommendations: data
       })
-      console.log(data)
     })
   }
 
@@ -122,6 +120,7 @@ class App extends Component {
     }
 
   render() {
+    {console.log(window.location.pathname)}
     return (
       <div>
         <h2 className='more-homes-title'>More homes you may like</h2>
