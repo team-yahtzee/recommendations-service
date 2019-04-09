@@ -8,6 +8,7 @@ import {BrowserRouter, Router} from 'react-router-dom'
 import Reactstrap from 'reactstrap'
 import Modal from './Modal.jsx'
 import StarRatingComponent from 'react-star-rating-component'
+import Footer from './Footer.jsx'
 
 
 
@@ -54,12 +55,6 @@ var seed = [
   } 
 ]
 
-const city = [
-  { name: "Video1", text: "video 1 text" },
-  { name: "Video2", text: "video 2 text" },
-  { name: "Video3", text: "video 3 text" },
-];
-
 // overwrite style
 const modalStyle = {
 	overlay: {
@@ -79,7 +74,8 @@ class App extends Component {
       modalImg: seed[0].recImg,
       modalTitle: seed[0].recTitle,
       modalRating: seed[0].recRating,
-      modalRatingCount: seed[0].recratingCount
+      modalRatingCount: seed[0].recratingCount,
+      modalId: 130
     }
     		// bind functions
 		this.closeModal = this.closeModal.bind(this);
@@ -114,9 +110,14 @@ class App extends Component {
     }
   
     // open modal (set isModalOpen, false)
-    openModal() {
+    openModal(event) {
       this.setState({
-        isModalOpen: true
+        isModalOpen: true,
+        modalId: parseInt(event.target.getAttribute('value')),
+        modalImg: event.target.getAttribute('img'),
+        modalTitle: event.target.getAttribute('title'),
+        modalRating: event.target.getAttribute('rating'), 
+        modalRatingCount: event.target.getAttribute('recratingcount')
       });
     }
 
@@ -130,11 +131,6 @@ class App extends Component {
 					style={modalStyle}
 				>
         	<button className='modal-close-button'
-						// style={{
-						// 	margin: 0,
-						// 	width: "auto",
-						// 	marginTop: 10
-						// }}
 						onClick={this.closeModal}
 					>
 						X
@@ -153,42 +149,15 @@ class App extends Component {
               src= {this.state.modalImg}
               alt="unsplash"
             />
-
             <div className='modal-title'>{this.state.modalTitle}</div>
             <StarRatingComponent className='photo-star-rating modal-box-rating' name='rating' starCount={parseInt(this.state.modalRating)} />
             <div className='photo-rating-count modal-box-rating'>({parseInt(this.state.modalRatingCount)})</div>
-
           </div>
-          
-          
-
-				</Modal>
+				</Modal >
 
         <Carousel openModal={this.openModal} recommendations={this.state.recommendations}/>
-        <h2 className='more-homes-title'>Explore other options in and around New York</h2>
-
-        <button onClick={this.newData.bind(this)}>Refresh!</button>
-        <span className='more-places-title'>More places to stay in New York:</span>
-        <div className='more-places-rec apartments'>Apartments</div>
-        <div className='more-places-rec'>·</div>
-        <div className='more-places-rec'>Houses</div>
-        <div className='more-places-rec'>·</div>
-        <div className='more-places-rec'>Bed and breakfasts</div>
-        <div className='more-places-rec'>·</div>
-        <div className='more-places-rec'>Villas</div>
-        <div className='more-places-rec'>·</div>
-        <div className='more-places-rec'>Condomoniums</div>
-
-        <div className='city-table'>
-          <table >
-            {city.map(city => (
-              <tr>
-                <td style={{display:'inline-block', }}>{city.name}</td>
-                <td style={{width: '10%'}}>{city.text}</td>
-              </tr>
-            ))}
-          </table>
-        </div>
+        <Footer />
+        
       </div>
     );
   }

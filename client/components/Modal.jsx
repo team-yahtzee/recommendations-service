@@ -3,7 +3,6 @@
 
 class Modal extends React.Component {
 
-
 	constructor(props) {
 		super(props);
 
@@ -64,6 +63,5 @@ class Modal extends React.Component {
 		);
 	}
 }
-
 
 export default Modal
