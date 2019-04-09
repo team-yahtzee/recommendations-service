@@ -400,6 +400,11 @@ h3 {
 }
 
 .more-places-rec {
+  float: left;
+  position: relative;
+  top:100px;
+  left:110px;
+  padding:0px 2px 0px 1px;
   margin: 0px !important;
   word-wrap: break-word !important;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
@@ -407,4 +412,18 @@ h3 {
   font-weight: 400 !important;
   line-height: 1.375em !important;
   color: #767676 !important;
+}
+
+.more-places-rec:hover {
+  text-decoration: underline;
+}
+
+.apartments {
+  padding: 0px 2px 0px 5px;
+}
+
+.city-table {
+  position:relative;
+  float:left; 
+  top:120px;
 }

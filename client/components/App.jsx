@@ -54,6 +54,11 @@ var seed = [
   } 
 ]
 
+const city = [
+  { name: "Video1", text: "video 1 text" },
+  { name: "Video2", text: "video 2 text" },
+  { name: "Video3", text: "video 3 text" },
+];
 
 // overwrite style
 const modalStyle = {
@@ -164,8 +169,25 @@ class App extends Component {
 
         <button onClick={this.newData.bind(this)}>Refresh!</button>
         <span className='more-places-title'>More places to stay in New York:</span>
-        <div>
-          <div className='more-places-rec'>Houses</div>
+        <div className='more-places-rec apartments'>Apartments</div>
+        <div className='more-places-rec'>·</div>
+        <div className='more-places-rec'>Houses</div>
+        <div className='more-places-rec'>·</div>
+        <div className='more-places-rec'>Bed and breakfasts</div>
+        <div className='more-places-rec'>·</div>
+        <div className='more-places-rec'>Villas</div>
+        <div className='more-places-rec'>·</div>
+        <div className='more-places-rec'>Condomoniums</div>
+
+        <div className='city-table'>
+          <table >
+            {city.map(city => (
+              <tr>
+                <td style={{display:'inline-block', }}>{city.name}</td>
+                <td style={{width: '10%'}}>{city.text}</td>
+              </tr>
+            ))}
+          </table>
         </div>
       </div>
     );
