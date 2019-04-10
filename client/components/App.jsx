@@ -150,7 +150,7 @@ class App extends Component {
       <div className='modal-name-your-list-title'>Name</div>
       <div className='modal-form-form'>
         <form>
-          <textarea name="" id='' cols='50' rows='1' value={this.state.cache}
+          <textarea style={{marginBottom: '20px'}} name="" id='' cols='61' rows='1' value={this.state.cache}
           onChange={this.handleChange.bind(this)} placeholder='Name your list'></textarea>
           <button className='modal-save-button' onClick = {this.save.bind(this)}>Create</button>
           <button className='modal-cancel-button' onClick={this.cancel.bind(this)}>Cancel</button>

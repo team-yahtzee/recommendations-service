@@ -11,10 +11,10 @@ class Carousel extends Component {
     var settings = {
       dots: true,
       slidesToShow: 3,
-      centerMode: true
+      centerMode: true,
+      centerPadding:0
     };
     return (
-        <div>
          <div className="container">
           <Slider {...settings}>
             {this.props.recommendations.map(rec => {
@@ -22,7 +22,6 @@ class Carousel extends Component {
             })}
           </Slider>
         </div>
-      </div>
     )
   }
 }

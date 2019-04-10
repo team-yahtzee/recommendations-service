@@ -54,6 +54,7 @@ h3 {
   border: 2px solid #fff;
   display: block;
   margin: auto;
+
 }
 .slick-slide img.slick-loading {
   border: 0;
@@ -138,8 +139,9 @@ h3 {
 }
 
 .slick-list {
-  padding:50px;
+  padding:0px;
   overflow:hidden;
+  /* margin: 0 -10px; */
 }
 
 .photo-padding {
@@ -322,7 +324,7 @@ h3 {
   top:15%;
   box-sizing: border-box;
   background-color: #fff;
-  margin: 40px auto;
+  /* margin: 40px auto; */
   border-radius: 3;
   z-index: 10;
   text-align: left;
@@ -556,6 +558,7 @@ hr {
   background-color: transparent !important;
   padding-left: var(--spacing-form-element-horizontal, 11px) !important;
   padding-right: var(--spacing-form-element-horizontal, 11px) !important;
+  margin-top:20px;
 }
 
 .modal-save-button {
@@ -596,7 +599,10 @@ hr {
   padding-left: var(22px) !important;
   padding-right: var(--spacing-button-horizontal, 22px) !important;
   box-shadow: var(--shadow-button-level0-box-shadow, none) !important;
-  color: #008489 !important;
+  color: rgb(255, 255, 255) !important;
+  background: rgb(0, 132, 137) !important;
+  border-color: transparent !important;
+  left:82%;
 }
 
 .modal-cancel-button {
@@ -640,8 +646,8 @@ hr {
   box-shadow: var(--shadow-button-level0-box-shadow, none) !important;
   color: #008489 !important;
   background: transparent !important;
-  border-color: rgb(0, 132, 137)
-
+  border-color: rgb(0, 132, 137);
+  left: 40%;
 }
 
 .top-bottom-border {
@@ -650,3 +656,4 @@ hr {
   table-layout: fixed !important;
   padding: 16px 0px !important;
 }
+
