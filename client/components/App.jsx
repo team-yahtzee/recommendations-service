@@ -1,16 +1,10 @@
 import React, { Component } from "react";
-
 import ReactDOM from 'react-dom'
-import { AlexaForBusiness } from "aws-sdk";
 import Carousel from './Carousel.jsx' 
 import axios from 'axios'
-import {BrowserRouter, Router} from 'react-router-dom'
-import Reactstrap from 'reactstrap'
 import Modal from './Modal.jsx'
 import StarRatingComponent from 'react-star-rating-component'
 import Footer from './Footer.jsx'
-
-
 
 var seed = [
   {
@@ -75,7 +69,8 @@ class App extends Component {
       modalTitle: seed[0].recTitle,
       modalRating: seed[0].recRating,
       modalRatingCount: seed[0].recratingCount,
-      modalId: 130
+      modalId: 130,
+      editing:false
     }
     		// bind functions
 		this.closeModal = this.closeModal.bind(this);
@@ -83,44 +78,89 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get(`/room${window.location.pathname}`)
-    .then(({data}) => {
-      this.setState({
-        recommendations: data
+    if (window.location.pathname !== '/') {
+      axios.get(`/room${window.location.pathname}`)
+      .then(({data}) => {
+        this.setState({
+          recommendations: data
+        })
       })
+    }
+  }
+  // close modal (set isModalOpen, true)
+  closeModal() {
+    this.setState({
+      isModalOpen: false
+    });
+  }
+
+  // open modal (set isModalOpen, false)
+  openModal(event) {
+    this.setState({
+      isModalOpen: true,
+      modalId: parseInt(event.target.getAttribute('value')),
+      modalImg: event.target.getAttribute('img'),
+      modalTitle: event.target.getAttribute('title'),
+      modalRating: event.target.getAttribute('rating'), 
+      modalRatingCount: event.target.getAttribute('recratingcount')
+    });
+  }
+
+  edit() {
+    this.setState({
+      editing: true,
     })
   }
 
-  newData() {
-    axios.get('/5')
-    .then(({data}) => {
-      this.setState({
-        recommendations: data
-      })
+  save(e) {
+    e.preventDefault();
+    this.setState({
+      editing:false, 
+      note: this.state.cache,
+      cachhe: undefined
     })
   }
-  
-    // close modal (set isModalOpen, true)
-    closeModal() {
-      this.setState({
-        isModalOpen: false
-      });
-    }
-  
-    // open modal (set isModalOpen, false)
-    openModal(event) {
-      this.setState({
-        isModalOpen: true,
-        modalId: parseInt(event.target.getAttribute('value')),
-        modalImg: event.target.getAttribute('img'),
-        modalTitle: event.target.getAttribute('title'),
-        modalRating: event.target.getAttribute('rating'), 
-        modalRatingCount: event.target.getAttribute('recratingcount')
-      });
-    }
+
+  cancel(e) {
+    e.preventDefault(); 
+    this.setState({
+      editing:false,
+      cache: undefined
+    })
+  }
+
+  handleChange(e) {
+    var value = e.target.value;
+    this.setState({
+      cache: value
+    })
+  }
+
+  renderDisplay() {
+    return (
+      <div>
+        <button className='create-new-list-text' onClick={this.edit.bind(this)}>Create New List</button>
+      </div>
+    )
+  }
+
+  renderForm() {
+    return (
+      <div className ='modal-form'>
+      <div className='modal-name-your-list-title'>Name</div>
+      <div className='modal-form-form'>
+        <form>
+          <textarea name="" id='' cols='50' rows='1' value={this.state.cache}
+          onChange={this.handleChange.bind(this)} placeholder='Name your list'></textarea>
+          <button className='modal-save-button' onClick = {this.save.bind(this)}>Create</button>
+          <button className='modal-cancel-button' onClick={this.cancel.bind(this)}>Cancel</button>
+        </form>
+      </div>
+      </div>
+    )
+  }
 
   render() {
-    {console.log(window.location.pathname)}
     return (
       <div>
         <h2 className='more-homes-title'>More homes you may like</h2>
@@ -137,7 +177,11 @@ class App extends Component {
 
           <h1 className='save-to-list-text'>Save to list</h1>
           <div className='create-new-list-div'>
-            <button className='create-new-list-text'>Create New List</button>
+            
+            {this.state.editing ? this.renderForm() : this.renderDisplay()}
+          </div>
+          <div className='top-bottom-border'>
+            <p>{this.state.note}</p>
           </div>
           <div className ='modal-bottom-box'>
             <img

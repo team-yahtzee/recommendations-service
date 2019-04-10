@@ -21,8 +21,6 @@ class Carousel extends Component {
               return <CarouselList openModal={this.props.openModal} recommendation={rec}/>
             })}
           </Slider>
-
-          
         </div>
       </div>
     )

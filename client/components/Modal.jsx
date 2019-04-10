@@ -41,7 +41,7 @@ class Modal extends React.Component {
 				right: 0,
 				width: "100%",
 				height: "100%",
-				backgroundColor: "rgba(0,0,0,0.5)",
+				backgroundColor: "rgba(0,0,0,0.2)",
 				// ...this.props.style.overlay
 			}
 		};
@@ -56,7 +56,7 @@ class Modal extends React.Component {
 					display: this.props.isModalOpen ? "block" : "none"
 				}}
 			>
-				<div className='modal-box'  onClick={this.props.closeModal} />
+				<div className='modal-box' style={this.style.overlay} onClick={this.props.closeModal} />
 				<div onClick={this.props.closeModal} />
 				<div className='modal-box'>{this.props.children}</div>
 			</div>
