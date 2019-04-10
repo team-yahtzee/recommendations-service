@@ -54,6 +54,7 @@ h3 {
   border: 2px solid #fff;
   display: block;
   margin: auto;
+
 }
 .slick-slide img.slick-loading {
   border: 0;
@@ -138,8 +139,9 @@ h3 {
 }
 
 .slick-list {
-  padding:50px;
+  padding:0px;
   overflow:hidden;
+  /* margin: 0 -10px; */
 }
 
 .photo-padding {
@@ -187,6 +189,7 @@ h3 {
 
 .photo-star-rating {
   float:left;
+  color: #008489 !important;
 }
 
 .photo-rating-count {
@@ -209,7 +212,7 @@ h3 {
   float:left;
   position: absolute;
   top: 70px;
-  right: 70px;
+  left:280px;
 	width: 36px;
 	height: 36px;
 	position: relative;
@@ -317,11 +320,11 @@ h3 {
   position: absolute;
   width: 600px;
   padding: 35px;
-  left: 380px;
-  top:40px;
+  left: 35%;
+  top:15%;
   box-sizing: border-box;
   background-color: #fff;
-  margin: 40px auto;
+  /* margin: 40px auto; */
   border-radius: 3;
   z-index: 10;
   text-align: left;
@@ -329,11 +332,12 @@ h3 {
 }
 
 .modal-bottom-box {
-  position: relative;
-  top: 250px;
-  background-color: rgb(255, 255, 255) 
-  box-shadow: rgba(0, 0, 0, 0.2) 0px -8px 20px -6px 
-  overflow-y: hidden 
+  position: absolute;
+  top: 400px;
+  width: 85%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px -8px 20px -6px ;
+  overflow-y: hidden ;
   transition: top 0.3s ease-in-out 0s;
 }
 
@@ -371,10 +375,13 @@ h3 {
   left: 10px;
 }
 
+
+/*bottom footer*/
+
 .more-homes-title {
   position:relative;
   top: 80px;
-  left: 110px;
+  left: 210px;
   margin: 0px !important;
   word-wrap: break-word !important;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
@@ -390,7 +397,7 @@ h3 {
   float:left;
   position:relative;
   top:100px;
-  left: 110px;
+  left: 210px;
   margin: 0px !important;
   word-wrap: break-word !important;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
@@ -403,7 +410,7 @@ h3 {
   float: left;
   position: relative;
   top:100px;
-  left:110px;
+  left:210px;
   padding:0px 2px 0px 1px;
   margin: 0px !important;
   word-wrap: break-word !important;
@@ -422,8 +429,231 @@ h3 {
   padding: 0px 2px 0px 5px;
 }
 
-.city-table {
+.bottom-nav-menu {
+
   position:relative;
-  float:left; 
-  top:120px;
+  top:150px;
+  left:200px;
+  overflow-wrap: break-word !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1.28571em !important;
+  color: rgb(72, 72, 72) !important;
+  margin: 0px !important;
 }
+
+.bottom-nav-menu-airbnb {
+  width: 16.6667% !important;
+  float: left !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  min-height: 1px !important;
+  position: relative !important;
+}
+
+.bottom-nav-menu-discover {
+  width: 16.6667% !important;
+  float: left !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  min-height: 1px !important;
+  position: relative !important;
+  margin-left: 8.33333% !important;
+}
+
+
+.bottom-nav-menu-social-media{
+  width: 16.6667% !important;
+  float: left !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  min-height: 1px !important;
+  position: relative !important;
+}
+
+
+.bottom-nav-menu-airbnb-title {
+  overflow-wrap: break-word !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  line-height: 1.28571em !important;
+  color: rgb(72, 72, 72) !important;
+  margin: 0px !important;
+}
+
+.bottom-nav-menu-airbnb-list {
+  margin-bottom: 0px !important;
+  margin-top: 16px !important;
+  padding-left: 0px !important;
+  list-style: none !important;
+}
+
+.bottom-nav-menu-airbnb-list-element {
+  color:  #767676 !important;
+  margin-bottom: 4px !important;
+}
+
+.bottom-nav-menu-airbnb-list-element:hover {
+  text-decoration-line: underline !important;
+  color:  #767676 !important;
+}
+
+hr { 
+  display: block;
+  position:relative;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 100px;
+  margin-right: 100px;
+  border-style: inset;
+  border-width: 1px;
+  top: 120px;
+} 
+
+.modal-form {
+  display: block;
+  position:relative;
+}
+
+.modal-name-your-list-title {
+  box-sizing:border-box;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  font-size: 20px;
+  line-height: 1.43;
+  color: #484848;
+  background-color: #fff;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.modal-form-form {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  letter-spacing: normal !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  color: rgb(72, 72, 72) !important;
+  padding-top: 11px !important;
+  padding-bottom: 11px !important;
+  font-weight: normal !important;
+  background-color: transparent !important;
+  padding-left: 11px !important;
+  padding-right: 11px !important;
+  width: 100% !important;
+  border-width: 0px !important;
+  border-style: initial !important;
+  border-color: initial !important;
+  border-image: initial !important;
+  margin: 0px !important;
+  font-size: var(--font-form-element-font-size, 16px) !important;
+  line-height: var(--font-form-element-line-height, 24px) !important;
+  letter-spacing: var(--font-form-element-letter-spacing, normal) !important;
+  font-family: var(--font-form-element-font-family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
+  text-transform: var(--font-form-element-text-transform, undefined) !important;
+  color: #484848 !important;
+  padding-top: var(--spacing-form-element-vertical, 11px) !important;
+  padding-bottom: var(--spacing-form-element-vertical, 11px) !important;
+  font-weight: var(--font-light-font-weight, normal) !important;
+  background-color: transparent !important;
+  padding-left: var(--spacing-form-element-horizontal, 11px) !important;
+  padding-right: var(--spacing-form-element-horizontal, 11px) !important;
+  margin-top:20px;
+}
+
+.modal-save-button {
+  display: inline-block !important;
+  position: relative !important;
+  text-align: center !important;
+  transition-property: background, border-color, color !important;
+  transition-duration: 0.2s !important;
+  transition-timing-function: ease-out !important;
+  width: auto !important;
+  cursor: pointer !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  letter-spacing: normal !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  font-weight: 800 !important;
+  padding-left: 22px !important;
+  padding-right: 22px !important;
+  min-width: 71.1935px !important;
+  box-shadow: none !important;
+  color: rgb(0, 132, 137) !important;
+  margin: 0px !important;
+  text-decoration: none !important;
+  border-radius: 4px !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  background: transparent !important;
+  border-color: rgb(0, 132, 137);
+  line-height: var(--font-button-line-height, 24px) !important;
+  letter-spacing: var(--font-button-letter-spacing, normal) !important;
+  font-family: var(--font-button-font-family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
+  text-transform: var(--font-button-text-transform, undefined) !important;
+  padding-top: var(--spacing-button-vertical, 10px) !important;
+  padding-bottom: var(--spacing-button-vertical, 10px) !important;
+  font-weight: var(--font-bold-font-weight, 800) !important;
+  padding-left: var(22px) !important;
+  padding-right: var(--spacing-button-horizontal, 22px) !important;
+  box-shadow: var(--shadow-button-level0-box-shadow, none) !important;
+  color: rgb(255, 255, 255) !important;
+  background: rgb(0, 132, 137) !important;
+  border-color: transparent !important;
+  left:82%;
+}
+
+.modal-cancel-button {
+  display: inline-block !important;
+  position: relative !important;
+  text-align: center !important;
+  transition-property: background, border-color, color !important;
+  transition-duration: 0.2s !important;
+  transition-timing-function: ease-out !important;
+  width: auto !important;
+  cursor: pointer !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  letter-spacing: normal !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  font-weight: 800 !important;
+  padding-left: 22px !important;
+  padding-right: 22px !important;
+  min-width: 71.1935px !important;
+  box-shadow: none !important;
+  color: rgb(0, 132, 137) !important;
+  margin: 0px !important;
+  text-decoration: none !important;
+  border-radius: 4px !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  background: transparent !important;
+  border-color: rgb(0, 13);
+  font-size: var(--font-button-font-size, 16px) !important;
+  line-height: var(--font-button-line-height, 24px) !important;
+  letter-spacing: var(--font-button-letter-spacing, normal) !important;
+  font-family: var(--font-button-font-family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
+  text-transform: var(--font-button-text-transform, undefined) !important;
+  padding-top: var(--spacing-button-vertical, 10px) !important;
+  padding-bottom: var(--spacing-button-vertical, 10px) !important;
+  font-weight: var(--font-bold-font-weight, 800) !important;
+  padding-left: var(--spacing-button-horizontal, 22px) !important;
+  padding-right: var(--spacing-button-horizontal, 22px) !important;
+  box-shadow: var(--shadow-button-level0-box-shadow, none) !important;
+  color: #008489 !important;
+  background: transparent !important;
+  border-color: rgb(0, 132, 137);
+  left: 40%;
+}
+
+.top-bottom-border {
+  width: 100% !important;
+  display: table !important;
+  table-layout: fixed !important;
+  padding: 16px 0px !important;
+}
+

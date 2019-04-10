@@ -1,15 +1,10 @@
 import React, { Component } from "react";
-
 import ReactDOM from 'react-dom'
-import { AlexaForBusiness } from "aws-sdk";
 import Carousel from './Carousel.jsx' 
 import axios from 'axios'
-import {BrowserRouter, Router} from 'react-router-dom'
-import Reactstrap from 'reactstrap'
 import Modal from './Modal.jsx'
 import StarRatingComponent from 'react-star-rating-component'
-
-
+import Footer from './Footer.jsx'
 
 var seed = [
   {
@@ -54,12 +49,6 @@ var seed = [
   } 
 ]
 
-const city = [
-  { name: "Video1", text: "video 1 text" },
-  { name: "Video2", text: "video 2 text" },
-  { name: "Video3", text: "video 3 text" },
-];
-
 // overwrite style
 const modalStyle = {
 	overlay: {
@@ -79,46 +68,97 @@ class App extends Component {
       modalImg: seed[0].recImg,
       modalTitle: seed[0].recTitle,
       modalRating: seed[0].recRating,
-      modalRatingCount: seed[0].recratingCount
+      modalRatingCount: seed[0].recratingCount,
+      modalId: 130,
+      editing:false
     }
     		// bind functions
 		this.closeModal = this.closeModal.bind(this);
 		this.openModal = this.openModal.bind(this);
   }
 
-  ComponentDidMount() {
-    console.log('hi')
-    axios.get('/4')
-    .then(({data}) => {
-      this.setState({
-        recommendations: data
+  componentDidMount() {
+    if (window.location.pathname !== '/') {
+      axios.get(`/room${window.location.pathname}`)
+      .then(({data}) => {
+        this.setState({
+          recommendations: data
+        })
       })
-      console.log(data)
+    }
+  }
+  // close modal (set isModalOpen, true)
+  closeModal() {
+    this.setState({
+      isModalOpen: false
+    });
+  }
+
+  // open modal (set isModalOpen, false)
+  openModal(event) {
+    this.setState({
+      isModalOpen: true,
+      modalId: parseInt(event.target.getAttribute('value')),
+      modalImg: event.target.getAttribute('img'),
+      modalTitle: event.target.getAttribute('title'),
+      modalRating: event.target.getAttribute('rating'), 
+      modalRatingCount: event.target.getAttribute('recratingcount')
+    });
+  }
+
+  edit() {
+    this.setState({
+      editing: true,
     })
   }
 
-  newData() {
-    axios.get('/5')
-    .then(({data}) => {
-      this.setState({
-        recommendations: data
-      })
+  save(e) {
+    e.preventDefault();
+    this.setState({
+      editing:false, 
+      note: this.state.cache,
+      cachhe: undefined
     })
   }
-  
-    // close modal (set isModalOpen, true)
-    closeModal() {
-      this.setState({
-        isModalOpen: false
-      });
-    }
-  
-    // open modal (set isModalOpen, false)
-    openModal() {
-      this.setState({
-        isModalOpen: true
-      });
-    }
+
+  cancel(e) {
+    e.preventDefault(); 
+    this.setState({
+      editing:false,
+      cache: undefined
+    })
+  }
+
+  handleChange(e) {
+    var value = e.target.value;
+    this.setState({
+      cache: value
+    })
+  }
+
+  renderDisplay() {
+    return (
+      <div>
+        <button className='create-new-list-text' onClick={this.edit.bind(this)}>Create New List</button>
+      </div>
+    )
+  }
+
+  renderForm() {
+    return (
+      <div className ='modal-form'>
+      <div className='modal-name-your-list-title'>Name</div>
+      <div className='modal-form-form'>
+        <form>
+          <textarea style={{marginBottom: '20px'}} name="" id='' cols='61' rows='1' value={this.state.cache}
+          onChange={this.handleChange.bind(this)} placeholder='Name your list'></textarea>
+          <button className='modal-save-button' onClick = {this.save.bind(this)}>Create</button>
+          <button className='modal-cancel-button' onClick={this.cancel.bind(this)}>Cancel</button>
+        </form>
+      </div>
+      </div>
+    )
+  }
 
   render() {
     return (
@@ -130,11 +170,6 @@ class App extends Component {
 					style={modalStyle}
 				>
         	<button className='modal-close-button'
-						// style={{
-						// 	margin: 0,
-						// 	width: "auto",
-						// 	marginTop: 10
-						// }}
 						onClick={this.closeModal}
 					>
 						X
@@ -142,7 +177,11 @@ class App extends Component {
 
           <h1 className='save-to-list-text'>Save to list</h1>
           <div className='create-new-list-div'>
-            <button className='create-new-list-text'>Create New List</button>
+            
+            {this.state.editing ? this.renderForm() : this.renderDisplay()}
+          </div>
+          <div className='top-bottom-border'>
+            <p>{this.state.note}</p>
           </div>
           <div className ='modal-bottom-box'>
             <img
@@ -153,42 +192,15 @@ class App extends Component {
               src= {this.state.modalImg}
               alt="unsplash"
             />
-
             <div className='modal-title'>{this.state.modalTitle}</div>
             <StarRatingComponent className='photo-star-rating modal-box-rating' name='rating' starCount={parseInt(this.state.modalRating)} />
             <div className='photo-rating-count modal-box-rating'>({parseInt(this.state.modalRatingCount)})</div>
-
           </div>
-          
-          
-
-				</Modal>
+				</Modal >
 
         <Carousel openModal={this.openModal} recommendations={this.state.recommendations}/>
-        <h2 className='more-homes-title'>Explore other options in and around New York</h2>
-
-        <button onClick={this.newData.bind(this)}>Refresh!</button>
-        <span className='more-places-title'>More places to stay in New York:</span>
-        <div className='more-places-rec apartments'>Apartments</div>
-        <div className='more-places-rec'>·</div>
-        <div className='more-places-rec'>Houses</div>
-        <div className='more-places-rec'>·</div>
-        <div className='more-places-rec'>Bed and breakfasts</div>
-        <div className='more-places-rec'>·</div>
-        <div className='more-places-rec'>Villas</div>
-        <div className='more-places-rec'>·</div>
-        <div className='more-places-rec'>Condomoniums</div>
-
-        <div className='city-table'>
-          <table >
-            {city.map(city => (
-              <tr>
-                <td style={{display:'inline-block', }}>{city.name}</td>
-                <td style={{width: '10%'}}>{city.text}</td>
-              </tr>
-            ))}
-          </table>
-        </div>
+        <Footer />
+        
       </div>
     );
   }
