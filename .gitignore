@@ -1,5 +1,5 @@
 photos
-dbs/recommendations.db 
+# dbs/recommendations.db 
 node_modules
 .DS_Store
 config
