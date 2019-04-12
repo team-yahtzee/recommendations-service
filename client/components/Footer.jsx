@@ -19,7 +19,7 @@ class Footer extends Component {
           <div className='more-places-rec'>·</div>
           <div className='more-places-rec'>Condomoniums</div>
          <div style={{color:'white'}}>.</div> 
-         <hr></hr>
+         <hr className='horizontal-line'></hr>
         <div className='bottom-nav-menu'>
           <div className='bottom-nav-menu-airbnb'>
             <div className='bottom-nav-menu-airbnb-title'>Airbnb</div> 
