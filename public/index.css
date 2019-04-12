@@ -500,7 +500,7 @@ h3 {
   color:  #767676 !important;
 }
 
-hr { 
+.horizontal-line { 
   display: block;
   position:relative;
   margin-top: 0.5em;
@@ -657,3 +657,8 @@ hr {
   padding: 16px 0px !important;
 }
 
+#recommendations {
+  position: relative;
+  top:564px;
+  left: -75px;  
+}
