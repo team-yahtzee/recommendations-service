@@ -1,7 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-console.log(path.join(__dirname, 'recommendations.db'))
 let db = new sqlite3.Database(path.join(__dirname, 'recommendations.db'), (err) => {
   if (err) {
     console.error(err.message)
