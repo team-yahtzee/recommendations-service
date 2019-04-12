@@ -6,7 +6,6 @@ module.exports.get=function(query, params) {
       db.all(query, params, function(err, rows)  {
           if(err) reject("Read error: " + err.message)
           else {
-            // console.log(rows)
             resolve(rows)
           }
       })

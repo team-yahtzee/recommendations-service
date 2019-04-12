@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import Slider from "react-slick";
 import CarouselList from './CarouselList.jsx'
 
-
 class Carousel extends Component {
   constructor(props) {
     super(props)
