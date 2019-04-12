@@ -317,11 +317,11 @@ h3 {
 
 .modal-box {
   height: 600px;
-  position: absolute;
+  position: relative  ;
   width: 600px;
   padding: 35px;
   left: 35%;
-  top:15%;
+  top:600px;
   box-sizing: border-box;
   background-color: #fff;
   /* margin: 40px auto; */
@@ -382,7 +382,7 @@ h3 {
   position:relative;
   top: 80px;
   left: 210px;
-  margin: 0px !important;
+  /* margin: 0px !important; */
   word-wrap: break-word !important;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
   font-size: 24px !important;
