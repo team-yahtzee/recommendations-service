@@ -9,6 +9,7 @@ recommendations service component includes
 <a href="https://imgflip.com/gif/2yiis2"><img src="https://i.imgflip.com/2yiis2.gif" title="made at imgflip.com"/></a>
 
 #Getting Started
+
 run node SeedData.js from dbs folder
 
 npm install all packages
