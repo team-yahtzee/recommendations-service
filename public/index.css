@@ -216,7 +216,7 @@ h3 {
   float:left;
   position: absolute;
   top: 70px;
-  left:280px;
+  left:85%;
 	width: 36px;
 	height: 36px;
 	position: relative;
@@ -384,9 +384,9 @@ h3 {
 
 .more-homes-title {
   position:relative;
-  width:80%;
+  width:70%;
   top: 80px;
-  left: 210px;
+  left: 12%;
   /* margin: 0px !important; */
   word-wrap: break-word !important;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;

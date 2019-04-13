@@ -6,7 +6,7 @@ class Footer extends Component {
   }
   render() {
     return (
-      <div style={{margin:'0px', padding:'0px', height:'400px', width: '80%'}}>
+      <div style={{margin:'0px', padding:'0px', height:'300px', margin:'0px'}}>
           <h2 className='more-homes-title'>Explore other options in and around New York</h2>
           <span className='more-places-title'>More places to stay in New York:</span>
           <div className='more-places-rec apartments'>Apartments</div>
