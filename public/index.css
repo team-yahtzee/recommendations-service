@@ -2,6 +2,25 @@
   margin-top: 20px;
 }
 
+.more-homes-box{
+  position: relative;
+  top:80px;
+  left:12%
+}
+
+.more-homes-title {
+  display:block;
+  position:relative;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  line-height: 1.25em !important;
+  color: #484848 !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
 .container {
   margin: 0 auto;
   /* padding: 200px; */
@@ -322,7 +341,7 @@ h3 {
 .modal-box {
   height: 600px;
   position: absolute  ;
-  width: 600px;
+  width: 35%;
   padding: 35px;
   left: 35%;
   /* top:600px; */
@@ -355,7 +374,9 @@ h3 {
 }
 
 .modal-title {
+  word-wrap: break-word;
   position: absolute;
+  width:43%;
   top: 50px;
   left:230px;
   float: left;
@@ -382,27 +403,20 @@ h3 {
 
 /*bottom footer*/
 
-.more-homes-title {
+
+
+
+
+.more-places-box {
   position:relative;
-  width:70%;
-  top: 80px;
-  left: 12%;
-  /* margin: 0px !important; */
-  word-wrap: break-word !important;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  font-size: 24px !important;
-  font-weight: 800 !important;
-  line-height: 1.25em !important;
-  color: #484848 !important;
-  padding-top: 2px !important;
-  padding-bottom: 2px !important;
+  height:40px;
+  left:12%;
+  top:10%;
 }
 
 .more-places-title {
   float:left;
   position:relative;
-  top:100px;
-  left: 210px;
   margin: 0px !important;
   word-wrap: break-word !important;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
@@ -414,8 +428,6 @@ h3 {
 .more-places-rec {
   float: left;
   position: relative;
-  top:100px;
-  left:210px;
   padding:0px 2px 0px 1px;
   margin: 0px !important;
   word-wrap: break-word !important;
@@ -435,10 +447,9 @@ h3 {
 }
 
 .bottom-nav-menu {
-
   position:relative;
-  top:150px;
-  left:200px;
+  top:18%;
+  left:12%;
   overflow-wrap: break-word !important;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
   font-size: 14px !important;
@@ -514,7 +525,7 @@ h3 {
   margin-right: 100px;
   border-style: inset;
   border-width: 1px;
-  top: 120px;
+  top: 12%;
 } 
 
 .modal-form {
@@ -607,7 +618,7 @@ h3 {
   color: rgb(255, 255, 255) !important;
   background: rgb(0, 132, 137) !important;
   border-color: transparent !important;
-  left:82%;
+  left:78%;
 }
 
 .modal-cancel-button {
@@ -652,7 +663,7 @@ h3 {
   color: #008489 !important;
   background: transparent !important;
   border-color: rgb(0, 132, 137);
-  left: 40%;
+  left: 28%;
 }
 
 .top-bottom-border {
@@ -695,7 +706,7 @@ h3 {
   border:1px solid;
   z-index:10;
   position:absolute;
-  width:86%;
+  width:100%;
   background:white;
 
 }
@@ -743,14 +754,12 @@ h3 {
 }
 #magnifying-glass::before
 {
-  /* float: left; */
   content: "";
   display: inline-block;
   position: absolute;
   right: -0.25em;
   bottom: -0.1em;
   border-width: 0;
-  
   background: #484848;
   width: 0.35em;
   height: 0.08em;

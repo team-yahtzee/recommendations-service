@@ -6,18 +6,22 @@ class Footer extends Component {
   }
   render() {
     return (
-      <div style={{margin:'0px', padding:'0px', height:'300px', margin:'0px'}}>
-          <h2 className='more-homes-title'>Explore other options in and around New York</h2>
-          <span className='more-places-title'>More places to stay in New York:</span>
-          <div className='more-places-rec apartments'>Apartments</div>
-          <div className='more-places-rec'>·</div>
-          <div className='more-places-rec'>Houses</div>
-          <div className='more-places-rec'>·</div>
-          <div className='more-places-rec'>Bed and breakfasts</div>
-          <div className='more-places-rec'>·</div>
-          <div className='more-places-rec'>Villas</div>
-          <div className='more-places-rec'>·</div>
-          <div className='more-places-rec'>Condomoniums</div>
+      <div style={{margin:'0px', padding:'0px', height:'450px', margin:'0px', marginBottom:'10px'}}>
+          <div className='more-homes-box'>
+            <h2 className='more-homes-title' style={{top:'-40px'}}>Explore other options in and around New York</h2>
+          </div>
+          <div className='more-places-box'>
+            <span className='more-places-title'>More places to stay in New York:</span>
+            <div className='more-places-rec apartments'>Apartments</div>
+            <div className='more-places-rec'>·</div>
+            <div className='more-places-rec'>Houses</div>
+            <div className='more-places-rec'>·</div>
+            <div className='more-places-rec'>Bed and breakfasts</div>
+            <div className='more-places-rec'>·</div>
+            <div className='more-places-rec'>Villas</div>
+            <div className='more-places-rec'>·</div>
+            <div className='more-places-rec'>Condomoniums</div>
+          </div>
          <div style={{color:'white'}}>.</div> 
          <hr className='horizontal-line'></hr>
         <div className='bottom-nav-menu'>
