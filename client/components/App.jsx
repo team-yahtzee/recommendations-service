@@ -5,6 +5,8 @@ import axios from 'axios'
 import Modal from './Modal.jsx'
 import StarRatingComponent from 'react-star-rating-component'
 import Footer from './Footer.jsx'
+import AutoCompleteText from './AutoCompleteText.jsx'
+import countries from './countries.jsx'
 
 var seed = [
   {
@@ -163,7 +165,14 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className='app'>
+        <div className='AutoCompleteText'>
+          <div className='App-Component'>
+            <div className='App-Component'>
+              <AutoCompleteText items={countries}/>
+            </div>
+          </div>
+        </div>
         <h2 className='more-homes-title'>More homes you may like</h2>
           <Modal
 					isModalOpen={this.state.isModalOpen}
