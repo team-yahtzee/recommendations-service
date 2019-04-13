@@ -173,44 +173,45 @@ class App extends Component {
             </div>
           </div>
         </div>
-        <h2 className='more-homes-title'>More homes you may like</h2>
-          <Modal
-					isModalOpen={this.state.isModalOpen}
-					closeModal={this.closeModal}
-					style={modalStyle}
-				>
-        	<button className='modal-close-button'
-						onClick={this.closeModal}
-					>
-						X
-					</button>
+        <div className='below-search'>
+          <h2 className='more-homes-title'>More homes you may like</h2>
+            <Modal
+            isModalOpen={this.state.isModalOpen}
+            closeModal={this.closeModal}
+            style={modalStyle}
+          >
+            <button className='modal-close-button'
+              onClick={this.closeModal}
+            >
+              X
+            </button>
 
-          <h1 className='save-to-list-text'>Save to list</h1>
-          <div className='create-new-list-div'>
-            
-            {this.state.editing ? this.renderForm() : this.renderDisplay()}
-          </div>
-          <div className='top-bottom-border'>
-            <p>{this.state.note}</p>
-          </div>
-          <div className ='modal-bottom-box'>
-            <img
-              className ='modal-image'
-              width="200px"
-              height="150px"
-              style={{ borderRadius: 3 }}
-              src= {this.state.modalImg}
-              alt="unsplash"
-            />
-            <div className='modal-title'>{this.state.modalTitle}</div>
-            <StarRatingComponent className='photo-star-rating modal-box-rating' name='rating' starCount={parseInt(this.state.modalRating)} />
-            <div className='photo-rating-count modal-box-rating'>({parseInt(this.state.modalRatingCount)})</div>
-          </div>
-				</Modal >
+            <h1 className='save-to-list-text'>Save to list</h1>
+            <div className='create-new-list-div'>
+              
+              {this.state.editing ? this.renderForm() : this.renderDisplay()}
+            </div>
+            <div className='top-bottom-border'>
+              <p>{this.state.note}</p>
+            </div>
+            <div className ='modal-bottom-box'>
+              <img
+                className ='modal-image'
+                width="200px"
+                height="150px"
+                style={{ borderRadius: 3 }}
+                src= {this.state.modalImg}
+                alt="unsplash"
+              />
+              <div className='modal-title'>{this.state.modalTitle}</div>
+              <StarRatingComponent className='photo-star-rating modal-box-rating' name='rating' starCount={parseInt(this.state.modalRating)} />
+              <div className='photo-rating-count modal-box-rating'>({parseInt(this.state.modalRatingCount)})</div>
+            </div>
+          </Modal >
 
-        <Carousel openModal={this.openModal} recommendations={this.state.recommendations}/>
-        <Footer />
-        
+          <Carousel openModal={this.openModal} recommendations={this.state.recommendations}/>
+          <Footer />
+        </div>
       </div>
     );
   }

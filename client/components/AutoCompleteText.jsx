@@ -43,11 +43,13 @@ export default class AutoCompleteText extends React.Component {
     const {text} = this.state
     return (
       <div>
-        <input value={text} onChange={this.onTextChanged.bind(this)} type='text' />
-        <ul>
-          {this.renderSuggestions.call(this)}
-          {/* {this.items.map((item) => <li>{item}</li>)} */}
-        </ul>
+        <div id='magnifying-glass-box'>
+          <div id="magnifying-glass"></div>
+        </div>
+        <div id='search-input'>
+          <input style={{width: '300px'}} value={text} placeholder="Search" onChange={this.onTextChanged.bind(this)} type='text' />
+        </div>
+        {this.renderSuggestions.call(this)}
       </div>
     )
   }
