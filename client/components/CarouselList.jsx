@@ -1,13 +1,10 @@
 import React, {Component} from 'react'
 import StarRatingComponent from 'react-star-rating-component'
 
-
 class CarouselList extends Component {
   constructor(props) {
     super(props)
-
   }
-
 
   render() {
     return (
@@ -20,7 +17,6 @@ class CarouselList extends Component {
         recratingcount={this.props.recommendation.recratingCount}></div>
         <div>
           <img className='photo' src={this.props.recommendation.recImg} alt=''/>
-          
           <div className='photo-padding'>
             <div className='photo-description'>
               <div className='photo-title'>{this.props.recommendation.recTitle}</div>
@@ -31,8 +27,6 @@ class CarouselList extends Component {
             </div>
           </div>
         </div>
-
-
       </div>
     )
   }

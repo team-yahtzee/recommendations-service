@@ -6,60 +6,7 @@ import Modal from './Modal.jsx'
 import StarRatingComponent from 'react-star-rating-component'
 import Footer from './Footer.jsx'
 import AutoCompleteText from './AutoCompleteText.jsx'
-import countries from './countries.jsx'
-
-var seed = [
-  {
-      "id": 130,
-      "recImg": "https://res.realadvisor.ch/fetch//https://storage.googleapis.com/img.realadvisor.ch/utl6dhy8och4ocikgbtt.jpg",
-      "recDetails": "Sit occaecati quasi necessitatibus labore in qui maiores.",
-      "recTitle": "Nulla aspernatur doloribus voluptatem cum.",
-      "recCost": "6",
-      "recRating": "4",
-      "recratingCount": "101",
-      "roomId": 1
-  },
-  {
-      "id": 145,
-      "recImg": "https://res.realadvisor.ch/fetch//https://storage.googleapis.com/img.realadvisor.ch/ixj02esewlgidv91luov.jpg",
-      "recDetails": "Mollitia et non amet earum quibusdam ipsum non.",
-      "recTitle": "Sint enim quia.",
-      "recCost": "652",
-      "recRating": "3",
-      "recratingCount": "100",
-      "roomId": 1
-  },
-  {
-      "id": 159,
-      "recImg": "https://res.realadvisor.ch/fetch//https://storage.googleapis.com/img.realadvisor.ch/j7koxv1vb8ae5gu8warq.jpg",
-      "recDetails": "Iusto ea et et repellat minus quae consequuntur est assumenda.",
-      "recTitle": "Dicta dignissimos atque natus cum perferendis et.",
-      "recCost": "984",
-      "recRating": "4",
-      "recratingCount": "130",
-      "roomId": 1
-  },
-  {
-      "id": 368,
-      "recImg": "https://res.realadvisor.ch/fetch//https://storage.googleapis.com/img.realadvisor.ch/zdncrboyjmjfxmbp7myz.jpg",
-      "recDetails": "Illo illum consequuntur est et.",
-      "recTitle": "Eum beatae atque dicta fugit tempora.",
-      "recCost": "673",
-      "recRating": "5",
-      "recratingCount": "104",
-      "roomId": 1
-  } 
-]
-
-// overwrite style
-const modalStyle = {
-	overlay: {
-		backgroundColor: "rgba(0, 0, 0,0.5)"
-	}
-};
-
-
-
+import {cities, seed} from './StaticData.jsx'
 class App extends Component {
   constructor() {
     super()
@@ -82,7 +29,7 @@ class App extends Component {
   componentDidMount() {
     if (window.location.pathname !== '/') {
       //Change the below to be the public DNS of your recommendation-service server in AWS
-      axios.get(`http://ec2-54-221-171-48.compute-1.amazonaws.com/room${window.location.pathname}`) 
+      axios.get(`/room${window.location.pathname}`) 
       .then(({data}) => {
         this.setState({
           recommendations: data
@@ -153,7 +100,7 @@ class App extends Component {
       <div className='modal-name-your-list-title'>Name</div>
       <div className='modal-form-form'>
         <form>
-          <textarea style={{marginBottom: '20px'}} name="" id='' cols='61' rows='1' value={this.state.cache}
+          <textarea style={{marginBottom: '20px'}} name="" id='' cols='48' rows='1' value={this.state.cache}
           onChange={this.handleChange.bind(this)} placeholder='Name your list'></textarea>
           <button className='modal-save-button' onClick = {this.save.bind(this)}>Create</button>
           <button className='modal-cancel-button' onClick={this.cancel.bind(this)}>Cancel</button>
@@ -169,16 +116,17 @@ class App extends Component {
         <div className='AutoCompleteText'>
           <div className='App-Component'>
             <div className='App-Component'>
-              <AutoCompleteText items={countries}/>
+              <AutoCompleteText items={cities}/>
             </div>
           </div>
         </div>
         <div className='below-search'>
-          <h2 className='more-homes-title'>More homes you may like</h2>
+          <div className='more-homes-box'>
+            <h2 className='more-homes-title'>More homes you may like</h2>
+          </div>
             <Modal
             isModalOpen={this.state.isModalOpen}
             closeModal={this.closeModal}
-            style={modalStyle}
           >
             <button className='modal-close-button'
               onClick={this.closeModal}
