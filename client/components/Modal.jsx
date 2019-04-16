@@ -1,5 +1,3 @@
-// import {  Button,Modal,ModalBody,ModalHeader,} from 'reactstrap'
-
 
 class Modal extends React.Component {
 
