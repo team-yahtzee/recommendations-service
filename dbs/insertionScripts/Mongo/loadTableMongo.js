@@ -12,8 +12,8 @@ const Room = Mongoose.model('rooms',new Mongoose.Schema ({
 let t0 = performance.now()
 
 const insertQueries = (count = 0) => {
-  let i = count * 10000
-  let end = (count * 10000) + 10000
+  let i = count * process.env.seed
+  let end = (count * process.env.seed) + process.env.seed
   let values = []
   while (i < end) {
     let value = { 
@@ -32,7 +32,7 @@ const insertQueries = (count = 0) => {
   Room.insertMany(values, function(err) {
     if (err) console.log ('error inserting', err)
     else {
-      if (count < 999) {
+      if (count < (1000000/process.env.seed) - 1) {
         count ++
         insertQueries(count)
       } else {
