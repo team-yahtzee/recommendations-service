@@ -32,7 +32,7 @@ const insertQueries = (count = 0) => {
   Room.insertMany(values, function(err) {
     if (err) console.log ('error inserting', err)
     else {
-      if (count < (1000000/process.env.seed) - 1) {
+      if (count < (process.env.total/process.env.seed) - 1) {
         count ++
         insertQueries(count)
       } else {
