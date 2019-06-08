@@ -30,13 +30,13 @@ const insertQueries = (count = 0) => {
   while (i < end) {
     let value = { 
       'id': i,  
-      'username': faker.internet.userName(),
-      'recImg': faker.image.imageUrl(),   
-      'recDetails': faker.lorem.sentence(),   
-      'recTitle': faker.lorem.words(),   
-      'recCost': faker.finance.amount(),  
-      'recRating': faker.random.number(),   
-      'recratingCount': faker.random.number()  
+      // 'username': faker.internet.userName(),
+      // 'recImg': faker.image.imageUrl(),   
+      // 'recDetails': faker.lorem.sentence(),   
+      // 'recTitle': faker.lorem.words(),   
+      // 'recCost': faker.finance.amount(),  
+      // 'recRating': faker.random.number(),   
+      // 'recratingCount': faker.random.number()  
     }
     values.push(value)
     i++
