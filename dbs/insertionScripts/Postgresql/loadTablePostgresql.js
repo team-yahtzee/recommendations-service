@@ -1,5 +1,5 @@
 const { Pool, Client} = require('pg')
-const config = require('./config.json.js')
+const config = require('./config.json')
 const faker = require('faker');
 const { performance } = require('perf_hooks');
 
