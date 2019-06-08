@@ -1,7 +1,7 @@
 {
   "host": "localhost",
-  "user": "newuser",
-  "pw": "",
+  "user": "postgres",
+  "pw": "password",
   "db": "recommendations",
   "port": "5432"
   }
