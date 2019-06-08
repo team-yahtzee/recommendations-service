@@ -23,7 +23,7 @@ let total = +process.env.total
 const insertQueries = (count = 0) => {
   let i = count * seed
   if (Number.isInteger(i/100000)) {
-    console.log('total seed = ',i)
+    console.log('total seed = ',i, '  time:   ',performance.now())
   }
   let end = (count * seed) + seed
   let values = []
