@@ -6,7 +6,13 @@ Mongoose.connect("mongodb://localHost/rooms",{ useNewUrlParser: true })
 
 const Room = Mongoose.model('rooms',new Mongoose.Schema ({
   id: Number,
-  name: String
+  username: String,
+  recImg: String,
+  recDetails: String,
+  recTitle: String,
+  recCost: Number,
+  recRating: Number,
+  recratingCount: Number
 }))
 
 let t0 = performance.now()
@@ -47,3 +53,6 @@ const insertQueries = (count = 0) => {
 }  
 
 insertQueries()
+
+module.exports.Room = Room
+
