@@ -7,6 +7,7 @@ import StarRatingComponent from 'react-star-rating-component'
 import Footer from './Footer.jsx'
 import AutoCompleteText from './AutoCompleteText.jsx'
 import {cities, seed} from './StaticData.jsx'
+
 class App extends Component {
   constructor() {
     super()
@@ -42,6 +43,7 @@ class App extends Component {
       })
     }
   }
+  
   // close modal (set isModalOpen, true)
   closeModal() {
     this.setState({
