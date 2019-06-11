@@ -1,9 +1,8 @@
-const db = require('../../dbs/db')
+const db = require('../../dbs/insertionScripts/Mongo/loadTableMongo.js')
 
-module.exports.get=function(query, params) {
+module.exports.get=function(query) {
   return new Promise(function(resolve, reject) {
-      if(params == undefined) params=[]
-      db.all(query, params, function(err, rows)  {
+      db.Room.find(query, function(err, rows)  {
           if(err) reject("Read error: " + err.message)
           else {
             resolve(rows)
