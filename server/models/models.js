@@ -1,4 +1,4 @@
-const db = require('../../dbs/insertionScripts/Mongo/loadTableMongo.js')
+const db = require('../../dbs/insertionScripts/Mongo/mongoDB.js')
 
 module.exports.get=function(query) {
   return new Promise(function(resolve, reject) {

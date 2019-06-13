@@ -1,6 +1,6 @@
 const faker = require('faker');
 const { performance } = require('perf_hooks');
-const db = require('./loadTableMongo.js')
+const db = require('./mongoDB.js')
 
 let t0 = performance.now()
 

@@ -30,13 +30,13 @@ class App extends Component {
   componentDidMount() {
     if (window.location.pathname !== '/') {
       //VERY IMPORTANT
-      //When deploying this to AWS change the below to be the public DNS of the AWS server this file is being run on (ex. `http://ec2-54-90-97-213.compute-1.amazonaws.com/room${window.location.pathname}`)
-      axios.get(`/room${window.location.pathname}`) 
+      //When deploying this from a proxy change the below to be the public DNS of the AWS server this file is being run on (ex. `http://ec2-54-90-97-213.compute-1.amazonaws.com/room${window.location.pathname}`)
+      axios.get(`http://3.130.81.221:3001/room${window.location.pathname}`)
       .then(({data}) => {
-        console.log('got data!',data)
+        console.log('got data',data)
         this.setState({
           recommendations: data
-        })
+        }) 
       })
       .catch((err)=>{
         console.log('error getting data',err)
