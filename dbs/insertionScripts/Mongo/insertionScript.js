@@ -18,7 +18,7 @@ const insertQueries = (count = 0) => {
     let value = { 
       'id': i,  
       'username': faker.internet.userName(),
-      'recImg': 'http://lorempixel.com/450/225/',   
+      'recImg': 'https://picsum.photos/300',   
       'recDetails': faker.lorem.sentence(),   
       'recTitle': faker.lorem.words(),   
       'recCost': faker.finance.amount(),  

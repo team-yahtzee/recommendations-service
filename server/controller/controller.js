@@ -1,4 +1,5 @@
-let models = require('../models/models')
+let models = require('../models/models.js')
+let client = require('../server.js')
 
 module.exports = {
   getRoomRecommendations: function(req, res, next) {
@@ -6,6 +7,7 @@ module.exports = {
     models.get({id:roomNum})
     .then(recommendationData => {
       res.send(recommendationData)
+      client.redis.set(roomNum,recommendationData)
     })
   }
 }

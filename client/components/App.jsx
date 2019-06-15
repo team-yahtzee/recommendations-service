@@ -20,11 +20,14 @@ class App extends Component {
       modalRating: seed[0].recRating,
       modalRatingCount: seed[0].recratingCount,
       modalId: 130,
-      editing:false
+      editing:false,
+      value: ""
     }
     		// bind functions
 		this.closeModal = this.closeModal.bind(this);
-		this.openModal = this.openModal.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.handleChangeForm = this.handleChangeForm.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -117,9 +120,31 @@ class App extends Component {
     )
   }
 
+  handleChangeForm(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    axios.post(`http://3.130.81.221:3001/room${window.location.pathname}`,this.state.value)
+      .then(() => {
+        console.log('successfully posted to server!')
+      })
+      .catch((err)=>{
+        console.log('error getting data',err)
+      })
+  }
+
   render() {
     return (
       <div className='app'>
+        <form>
+          <label>
+            Name:
+            <input type="text" value={this.state.value} onChange={this.handleChangeForm} />
+          </label>
+          <input type="submit" value="Submit"/>
+        </form>
         <div className='AutoCompleteText'>
           <div className='App-Component'>
             <div className='App-Component'>
