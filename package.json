@@ -46,6 +46,7 @@
     "react-star-rating": "^1.4.2",
     "react-star-rating-component": "^1.4.1",
     "reactstrap": "^8.0.0",
+    "redis": "^2.8.0",
     "slick": "^1.12.2",
     "slick-carousel": "^1.8.1",
     "webpack": "^3.12.0"
